@@ -1,0 +1,5 @@
+<tr>
+  <td><a href="{{ urlFor( 'log', { 'id': log.getId() } ) }}">{{ data['@timestamp'][0]|date('H:i') }}</a></td>
+  <td>&lt;{{ data['nick'][0] }}&gt;</td>
+  <td>{{ data['message'][0] }}</td>
+</tr>

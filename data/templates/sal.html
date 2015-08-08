@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% set route = app.router.getCurrentRoute.getName %}
+{% set all = results.getTotalHits() %}
+{% set first = (p * i) + 1 %}
+{% set last = min( first + i - 1, all ) %}
+{% set last_day = '' %}
+
+{% block title %}{{ 'title-sal'|message( project ) }} - {{ parent() }}{% endblock title %}
+
+{% block content %}
+<form id="search-form" method="get" action="{{ urlFor( 'SAL', { 'project': project } ) }}">
+  <input type="hidden" name="p" value="0">
+  <div>
+    <label class="sr-only" for="q">{{ 'search-q-empty'|message }}</label>
+    <input type="text" id="q" name="q" placeholder="{{ 'search-query'|message( project ) }}" value="{{ q }}">
+  </div>
+  <div>
+    <button type="submit">{{ 'search-go'|message }}</button>
+  </div>
+</form>
+<div class="hits">{% if pages > 1 %}{{ first }}-{{ last }} of {% endif %}{{ all }} results ({{ results.getTotalTime() }}ms)</div>
+{% if pages > 1 %}
+{% include 'inc/pagination.html' %}
+{% endif %}
+{% spaceless %}
+<table class="sal">
+  {% for log in results %}
+  {% set data = log.getData() %}
+  {% set day = data['@timestamp'][0]|date('Y-m-d') %}
+  {% if day is not same as(last_day) %}
+  <tbody>
+  <tr>
+    <th colspan="3">{{ day }}</th>
+  </tr>
+  {% endif %}
+  {% include 'inc/log.html' %}
+  {% set last_day = day %}
+  {% endfor %}
+</table>
+{% endspaceless %}
+{% if pages > 1 %}
+{% include 'inc/pagination.html' %}
+{% endif %}
+{% endblock content %}

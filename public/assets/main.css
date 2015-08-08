@@ -1,0 +1,228 @@
+/* http://meyerweb.com/eric/tools/css/reset/ v2.0 | 20110126 License:none (public domain) */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin:0; padding:0; border:0; font-size:100%; font:inherit; vertical-align:baseline; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display:block; }
+body { line-height:1; }
+ol, ul { list-style:none; }
+blockquote, q { quotes:none; }
+blockquote:before, blockquote:after, q:before, q:after { content:''; content:none; }
+table { border-collapse:collapse; border-spacing:0; }
+
+*, *:after, *:before { box-sizing: border-box; }
+html, body { height:100% }
+body {
+  background:#fff;
+  font:normal 100%/1.5 sans-serif;
+  padding-top:2.5em;
+  text:#333;
+  line-height:1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color:inherit;
+  font-family:inherit;
+  font-weight:500;
+  line-height:1.1em;
+  padding:.5em 0;
+}
+h1 { font-size:3em; }
+h2 { font-size:2em; border-bottom:1px solid #ccc; }
+h3 { font-size:1.5em; }
+
+p {
+  padding:.5em 0;
+  line-height:1.1em;
+}
+
+pre {
+  font-family:monospace;
+  white-space:pre;
+}
+
+kbd {
+  font-family:monospace;
+  font-weight:500;
+  background:#eee;
+  padding:0 .2em;
+}
+
+ol {
+  list-style-type:decimal;
+  padding:.5em 0;
+  padding-left:3em;
+}
+
+ol ul {
+  list-style-type:circle;
+  padding:.25em 0;
+  padding-left:1em;
+}
+
+form div {
+  display:inline-block;
+  vertical-align:middle;
+}
+form label {
+  display:inline-block;
+  font-weight:700;
+  padding-bottom:5px;
+  max-width:100%;
+}
+form input {
+  background-color:#fff;
+  background-image:none;
+  border:1px solid #ccc;
+  box-shadow:0 1px 1px rgba(0,0,0,0.075) inset;
+  color:#555;
+  display:inline-block;
+  font-family:inherit;
+  line-height:1.42857;
+  padding:.1em .2em;
+  vertical-align:middle;
+  width:auto;
+}
+form button {
+  background-color:#fff;
+  background-image:none;
+  border-radius:4px;
+  border:1px solid #ccc;
+  color:#333;
+  cursor:pointer;
+  display:inline-block;
+  font-family:inherit;
+  font-weight:400;
+  line-height:1.42857;
+  overflow:visible;
+  padding:.1em .2em;
+  text-align:center;
+  vertical-align:middle;
+  white-space:nowrap;
+}
+
+a { color:#268bd2; }
+a:visited { color:#6c71c4; }
+a:hover { color:#d33682; }
+
+.header {
+  min-height:22px;
+  position:fixed;
+  top:0px;
+  width:100%;
+}
+#logo {
+  height:22px;
+  padding-right:.25em;
+  vertical-align:middle;
+  width:22px;
+}
+.navbar {
+  background:#ccc;
+  border-bottom:1px solid #333;
+  padding:.25em;
+}
+.navbar-brand {
+  color:#333;
+  font-size:larger;
+  font-weight:bold;
+  padding-right:1em;
+  text-decoration:none;
+}
+.navbar-brand:hover {
+  text-decoration:underline;
+  color:#fff;
+}
+.nav {
+  display:inline;
+  list-style-type:none;
+  padding:0;
+}
+.nav li {
+  display:inline;
+  padding-right:.25em;
+}
+.navbar a, .footer a {
+  color:#333;
+  text-decoration:none;
+}
+.navbar a:hover, .footer a:hover {
+  color:#fff;
+  text-decoration:underline;
+}
+body > .container {
+  height:auto;
+  min-height:100%;
+}
+.container {
+  height:100%;
+  padding:0 2em;
+  padding-bottom:3em;
+}
+#search-form {
+  float:left;
+}
+#q {
+  width:15em;
+}
+.pagination {
+  clear:right;
+  text-align:right;
+}
+.pagination ul {
+  display:inline;
+  list-style-type:none;
+}
+.pagination li {
+  display:inline;
+  padding:0 .25em;
+}
+.pagination .active a {
+  text-decoration:underline;
+  color:inherit;
+}
+.hits {
+  float:right;
+  font-size:smaller;
+  color:#666;
+  padding-bottom:.2em;
+}
+.sal {
+  border-collapse:collapse;
+  clear:both;
+  empty-cells:hide;
+}
+.sal tr {
+  border-bottom:1px dotted #eee;
+}
+.sal th, .sal td {
+  padding:.25em;
+}
+.sal th {
+  border-bottom:1px solid #ccc;
+  font-size:1.5em;
+  padding:1em 0 .5em;
+  text-align:left;
+}
+.footer {
+  background:#ccc;
+  border-top:1px solid #333;
+  clear:both;
+  margin-top:-2em;
+  height:2em;
+  padding:.25em;
+  padding-right:1em;
+  position:relative;
+  text-align:right;
+}
+
+.text-small {
+  font-size:smaller;
+}
+.sr-only {
+  border:0 none;
+  clip:rect(0px, 0px, 0px, 0px);
+  height:1px;
+  margin:-1px;
+  overflow:hidden;
+  padding:0;
+  position:absolute;
+  width:1px;
+}

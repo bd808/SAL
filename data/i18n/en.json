@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bryan Davis"
+		]
+	},
+	"404-header": "404",
+	"404-message": "It is pitch black. You are likely to be eaten by a grue.",
+	"about-header": "About SAL",
+	"about-section-credits": "Credits",
+	"about-section-license": "License",
+	"about-section-toollabs": "Wikimedia Tool Labs",
+	"error-header": "Boom!",
+	"error-id": "Error ID: $1",
+	"error-message": "gj you broked it. maybe it will work if you repeatedly reload the page.",
+	"header-title": "SAL",
+	"nav-about": "about",
+	"nav-production": "Production",
+	"nav-releng": "Release Engineering",
+	"permalink": "[link]",
+	"search-go": "go",
+	"search-q-empty": "search",
+	"search-query": "search $1 SAL",
+	"title-log": "Log event",
+	"title-sal": "$1 SAL",
+	"zzzzz": "zzzzz"
+}
