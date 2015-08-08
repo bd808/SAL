@@ -136,8 +136,12 @@ a:hover { color:#d33682; }
   padding:0;
 }
 .nav li {
+  border-right:2px inset #333;
   display:inline;
-  padding-right:.25em;
+  padding:0 .5em 0 .25em;
+}
+.nav li:last-child {
+  border-right:none;
 }
 .navbar a, .footer a {
   color:#333;
