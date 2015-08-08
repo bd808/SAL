@@ -201,6 +201,13 @@ body > .container {
   padding:1em 0 .5em;
   text-align:left;
 }
+.sal .time,
+.sal .nick {
+  font-size:smaller;
+}
+.sal .nick {
+  color:#666;
+}
 .footer {
   background:#ccc;
   border-top:1px solid #333;
