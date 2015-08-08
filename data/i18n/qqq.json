@@ -15,6 +15,7 @@
 	"error-message": "Fatal error page content",
 	"header-title": "Used as the page title",
 	"nav-about": "Navigation link / title for about page",
+	"nav-projects": "Navigation link / title for project list page",
 	"nav-production": "Navigation link",
 	"nav-releng": "Navigation link",
 	"permalink": "text for link to unique url for a quip",

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ 'nav-projects'|message }} - {{ parent() }}{% endblock title %}
+
+{% block content %}
+{% spaceless %}
+<ul class="projects">
+  {% for project in projects %}
+  {% if project not in [ 'production', 'releng' ] %}
+  <li><a href="{{ urlFor( 'SAL', { 'project': project } ) }}">{{ project }}</a></li>
+  {% endif %}
+  {% endfor %}
+</ul>
+{% endspaceless %}
+{% endblock content %}

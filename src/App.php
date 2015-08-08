@@ -185,12 +185,12 @@ class App extends AbstractApp {
 			function () use ( $slim ) {
 				App::template( $slim, 'about' );
 
-				$slim->get( '(:project)', function ( $project = 'production' ) use ( $slim ) {
-					$page = new Pages\Sal( $slim );
+				$slim->get( 'projects', function () use ( $slim ) {
+					$page = new Pages\Projects( $slim );
 					$page->setI18nContext( $slim->i18nContext );
 					$page->setLogs( $slim->logs );
-					$page( $project );
-				} )->name( 'SAL' );
+					$page();
+				} )->name( 'projects' );
 
 				$slim->get( 'log/:id', function ( $id ) use ( $slim ) {
 					$page = new Pages\Log( $slim );
@@ -198,6 +198,14 @@ class App extends AbstractApp {
 					$page->setLogs( $slim->logs );
 					$page( $id );
 				} )->name( 'log' );
+
+				$slim->get( '(:project)', function ( $project = 'production' ) use ( $slim ) {
+					$page = new Pages\Sal( $slim );
+					$page->setI18nContext( $slim->i18nContext );
+					$page->setLogs( $slim->logs );
+					$page( $project );
+				} )->name( 'SAL' );
+
 			}
 		); //end group '/'
 
