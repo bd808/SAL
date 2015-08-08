@@ -145,6 +145,26 @@ class App extends AbstractApp {
 			new TwigExtension( $this->slim->parsoid ),
 			new \Wikimedia\SimpleI18n\TwigExtension( $this->slim->i18nContext ),
 			new \Twig_Extension_Debug(),
+			new LinkifyExtension( array(
+				// Gerrit change-id
+				'/(?<=\s)\b(I[0-9a-f]{6,})\b(?=\s|:|$)/' => array(
+					'https://gerrit.wikimedia.org/r/#/q/$1,n,z', '$1'
+				),
+				// Git commit hash
+				'/(?<=\s)\b([0-9a-f]{7,})\b(?=\s|:|$)/' => array(
+					'https://gerrit.wikimedia.org/r/#/q/$1,n,z', '$1'
+				),
+				// Gerrit patch
+				'/\b(gerrit[:|](\d+))\b/' => array(
+					'https://gerrit.wikimedia.org/r/#/c/$2', '$1'
+				),
+				// Phab task
+				'#(?<!/)\b(T\d+)\b#' => array(
+					'https://phabricator.wikimedia.org/$1', '$1'
+				),
+				// Raw url
+				'#(?<=\s)<?(https?://\S+)>?(?=\s|$)#' => array( '$1', '$0' ),
+			) ),
 		);
 
 		// Set default view data
