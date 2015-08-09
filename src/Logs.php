@@ -124,9 +124,10 @@ class Logs {
 			'page' => 0,
 		), $params );
 
-		$project = new Term( array( 'project' => $params['project'] ) );
 		if ( $params['query'] !== null ) {
-			$qs = new SimpleQueryString( $params['query'], array( 'message' ) );
+			$qs = new SimpleQueryString(
+				$params['query'], array( 'message', 'nick' )
+			);
 			$query = new Query( $qs );
 		} else {
 			$query = new Query();
