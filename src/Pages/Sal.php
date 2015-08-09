@@ -34,6 +34,12 @@ class Sal extends Page {
 		$this->form->expectInt( 'i',
 			array( 'min_range' => 1, 'max_range' => 200, 'default' => 50 )
 		);
+		$this->form->expectRegex( 'd', '/\d{4}-\d{2}-\d{2}/', array(
+			'validate' => function ( $v ) {
+				return date( 'Y-m-d', strtotime( $v ) ) === $v &&
+					strtotime( $v ) <= time();
+			}
+		) );
 		$this->form->validate( $_GET );
 
 		$params = array(
@@ -41,6 +47,7 @@ class Sal extends Page {
 			'query' => $this->form->get( 'q' ),
 			'page' => $this->form->get( 'p' ),
 			'items' => $this->form->get( 'i' ),
+			'date' => $this->form->get( 'd' ),
 		);
 		$ret = $this->logs->search( $params );
 		list( $pageCount, $first, $last ) = $this->pagination(
@@ -50,6 +57,7 @@ class Sal extends Page {
 		$this->view->set( 'q', $this->form->get( 'q' ) );
 		$this->view->set( 'p', $this->form->get( 'p' ) );
 		$this->view->set( 'i', $this->form->get( 'i' ) );
+		$this->view->set( 'd', $this->form->get( 'd' ) );
 		$this->view->set( 'results', $ret );
 		$this->view->set( 'pages', $pageCount );
 		$this->view->set( 'left', $first );

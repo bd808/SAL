@@ -19,6 +19,8 @@
 	"nav-production": "Navigation link",
 	"nav-releng": "Navigation link",
 	"permalink": "text for link to unique url for a quip",
+	"search-d-empty": "Label for date text box",
+	"search-date": "Placeholder text for date text box",
 	"search-go": "Search action button text",
 	"search-q-empty": "Label for search text box",
 	"search-query": "Placeholder text for search text box. Parameters:\n* $1 - project name",

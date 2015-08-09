@@ -23,8 +23,10 @@ use Elastica\Aggregation\Terms;
 use Elastica\Client;
 use Elastica\Filter\Term;
 use Elastica\Query;
+use Elastica\Query\BoolQuery;
 use Elastica\Query\FunctionScore;
 use Elastica\Query\Ids;
+use Elastica\Query\Range;
 use Elastica\Query\SimpleQueryString;
 use Elastica\ResultSet;
 use Elastica\Search;
@@ -122,16 +124,23 @@ class Logs {
 			'query' => null,
 			'items' => 20,
 			'page' => 0,
+			'date' => null,
 		), $params );
 
+		$filters = new BoolQuery();
+
 		if ( $params['query'] !== null ) {
-			$qs = new SimpleQueryString(
+			$filters->addMust( new SimpleQueryString(
 				$params['query'], array( 'message', 'nick' )
-			);
-			$query = new Query( $qs );
-		} else {
-			$query = new Query();
+			) );
 		}
+		if ( $params['date'] !== null ) {
+			$filters->addMust( new Range(
+				'@timestamp', array( 'lte' => $params['date'] )
+			) );
+		}
+
+		$query = new Query( $filters );
 		$query->setPostFilter(
 			new Term( array( 'project' => $params['project'] ) )
 		);

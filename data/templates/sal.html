@@ -15,6 +15,10 @@
     <input type="text" id="q" name="q" placeholder="{{ 'search-query'|message( project ) }}" value="{{ q }}">
   </div>
   <div>
+    <label class="sr-only" for="d">{{ 'search-d-empty'|message }}</label>
+    <input type="date" id="d" name="d" placeholder="{{ 'search-date'|message( project ) }}" value="{{ d }}">
+  </div>
+  <div>
     <button type="submit">{{ 'search-go'|message }}</button>
   </div>
 </form>
