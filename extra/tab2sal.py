@@ -64,4 +64,5 @@ for rec in parse_line(sys.stdin):
 
     if rec['nick'] == 'logmsgbot':
         (rec['nick'], rec['message']) = rec['message'].split(' ', 1)
+    print '{"index":{"_index":"sal","_type":"sal"}}'
     print json.dumps(rec)
