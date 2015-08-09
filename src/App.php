@@ -147,11 +147,11 @@ class App extends AbstractApp {
 			new \Twig_Extension_Debug(),
 			new LinkifyExtension( array(
 				// Gerrit change-id
-				'/(?<=\s)\b(I[0-9a-f]{6,})\b(?=\s|:|$)/' => array(
+				'/(?<=^|\s)\b(I[0-9a-f]{6,})\b(?=\s|:|$)/' => array(
 					'https://gerrit.wikimedia.org/r/#/q/$1,n,z', '$1'
 				),
 				// Git commit hash
-				'/(?<=\s|\.\.)\b([0-9a-f]{7,})\b(?=\s|:|\.\.|$)/' => array(
+				'/(?<=^|\s|\.\.)\b([0-9a-f]{7,})\b(?=\s|:|\.\.|$)/' => array(
 					'https://gerrit.wikimedia.org/r/#/q/$1,n,z', '$1'
 				),
 				// Gerrit patch
@@ -167,12 +167,12 @@ class App extends AbstractApp {
 					'https://bugzilla.wikimedia.org/show_bug.cgi?id=$2', '$1'
 				),
 				// SVN revisions
-				'/(?<=\s)\br(\d+)\b(?=\s|:|,|$)/' => array(
+				'/(?<=^|\s)\br(\d+)\b(?=\s|:|,|$)/' => array(
 					'https://www.mediawiki.org/wiki/Special:Code/MediaWiki/$1',
 					'$0'
 				),
 				// Raw url
-				'#(?<=\s)<?(https?://\S+)>?(?=\s|$)#' => array( '$1', '$0' ),
+				'#(?<=^|\s)<?(https?://\S+)>?(?=\s|$)#' => array( '$1', '$0' ),
 			) ),
 		);
 
