@@ -151,7 +151,7 @@ class App extends AbstractApp {
 					'https://gerrit.wikimedia.org/r/#/q/$1,n,z', '$1'
 				),
 				// Git commit hash
-				'/(?<=\s)\b([0-9a-f]{7,})\b(?=\s|:|$)/' => array(
+				'/(?<=\s|\.\.)\b([0-9a-f]{7,})\b(?=\s|:|\.\.|$)/' => array(
 					'https://gerrit.wikimedia.org/r/#/q/$1,n,z', '$1'
 				),
 				// Gerrit patch
