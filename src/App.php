@@ -162,6 +162,15 @@ class App extends AbstractApp {
 				'#(?<!/)\b(T\d+)\b#' => array(
 					'https://phabricator.wikimedia.org/$1', '$1'
 				),
+				// Bugzilla bug
+				'/\b(bugzilla[:|](\d+))\b/' => array(
+					'https://bugzilla.wikimedia.org/show_bug.cgi?id=$2', '$1'
+				),
+				// SVN revisions
+				'/(?<=\s)\br(\d+)\b(?=\s|:|,|$)/' => array(
+					'https://www.mediawiki.org/wiki/Special:Code/MediaWiki/$1',
+					'$0'
+				),
 				// Raw url
 				'#(?<=\s)<?(https?://\S+)>?(?=\s|$)#' => array( '$1', '$0' ),
 			) ),
