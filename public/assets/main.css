@@ -98,9 +98,15 @@ form button {
   white-space:nowrap;
 }
 
-a { color:#268bd2; }
+a {
+  color:#268bd2;
+  text-decoration:none;
+}
 a:visited { color:#6c71c4; }
-a:hover { color:#d33682; }
+a:hover {
+  color:#d33682;
+  text-decoration:underline;
+}
 
 .header {
   min-height:22px;
@@ -127,7 +133,6 @@ a:hover { color:#d33682; }
   text-decoration:none;
 }
 .navbar-brand:hover {
-  text-decoration:underline;
   color:#fff;
 }
 .nav {
@@ -149,7 +154,6 @@ a:hover { color:#d33682; }
 }
 .navbar a:hover, .footer a:hover {
   color:#fff;
-  text-decoration:underline;
 }
 body > .container {
   height:auto;
@@ -203,6 +207,7 @@ body > .container {
   border-bottom:1px solid #ccc;
   font-size:1.5em;
   padding:1em 0 .5em;
+  position:relative;
   text-align:left;
 }
 .sal .time,
@@ -211,6 +216,23 @@ body > .container {
 }
 .sal .nick {
   color:#666;
+}
+.sal a.day {
+  color:inherit;
+  display:block;
+}
+.sal .section {
+  display:none;
+}
+.sal a.day:hover {
+  text-decoration:none;
+}
+.sal a.day:hover + .section {
+  color:#ccc;
+  display:block;
+  left:-.75em;
+  top:1em;
+  position:absolute;
 }
 .footer {
   background:#ccc;

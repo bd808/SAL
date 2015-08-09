@@ -34,7 +34,12 @@
   {% if day is not same as(last_day) %}
   <tbody>
   <tr>
-    <th colspan="3">{{ day }}</th>
+    <th colspan="3">
+      <a class="day" href="{{ urlFor( 'SAL', { 'project': project } ) }}?d={{ day }}">
+        {{ day }}
+      </a>
+      <span class="section">§</span>
+    </th>
   </tr>
   {% endif %}
   {% include 'inc/log.html' %}
