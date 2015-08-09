@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7aebe48238e87b1a5179ce0beac17e44",
+    "hash": "539deb7404e264a25fb43ce2d2fc34bc",
     "packages": [
         {
             "name": "bd808/monolog-udp2log-handler",
@@ -227,16 +227,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.15.0",
+            "version": "1.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "dc5150cc608f2334c72c3b6a553ec9668a4156b0"
+                "reference": "c0c0b4bee3aabce7182876b0d912ef2595563db7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/dc5150cc608f2334c72c3b6a553ec9668a4156b0",
-                "reference": "dc5150cc608f2334c72c3b6a553ec9668a4156b0",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c0c0b4bee3aabce7182876b0d912ef2595563db7",
+                "reference": "c0c0b4bee3aabce7182876b0d912ef2595563db7",
                 "shasum": ""
             },
             "require": {
@@ -273,7 +273,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.15.x-dev"
+                    "dev-master": "1.16.x-dev"
                 }
             },
             "autoload": {
@@ -299,7 +299,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2015-07-12 13:54:09"
+            "time": "2015-08-09 17:44:44"
         },
         {
             "name": "phpmailer/phpmailer",
@@ -763,7 +763,163 @@
             "time": "2015-08-02 04:39:12"
         }
     ],
-    "packages-dev": [],
+    "packages-dev": [
+        {
+            "name": "jakub-onderka/php-parallel-lint",
+            "version": "v0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JakubOnderka/PHP-Parallel-Lint.git",
+                "reference": "1b693fb455201cacf595163c92bfb1adfa2158d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JakubOnderka/PHP-Parallel-Lint/zipball/1b693fb455201cacf595163c92bfb1adfa2158d8",
+                "reference": "1b693fb455201cacf595163c92bfb1adfa2158d8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "jakub-onderka/php-console-highlighter": "~0.3",
+                "nette/tester": "~1.3"
+            },
+            "suggest": {
+                "jakub-onderka/php-console-highlighter": "Highlight syntax in code snippet"
+            },
+            "bin": [
+                "parallel-lint"
+            ],
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "./"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD"
+            ],
+            "authors": [
+                {
+                    "name": "Jakub Onderka",
+                    "email": "jakub.onderka@gmail.com"
+                }
+            ],
+            "description": "This tool check syntax of PHP files about 20x faster than serial check.",
+            "homepage": "https://github.com/JakubOnderka/PHP-Parallel-Lint",
+            "time": "2015-06-16 10:17:07"
+        },
+        {
+            "name": "mediawiki/mediawiki-codesniffer",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/wikimedia/mediawiki-tools-codesniffer.git",
+                "reference": "cb25db9fba6b3d3b6cc6ee95a87772ff1302929b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/wikimedia/mediawiki-tools-codesniffer/zipball/cb25db9fba6b3d3b6cc6ee95a87772ff1302929b",
+                "reference": "cb25db9fba6b3d3b6cc6ee95a87772ff1302929b",
+                "shasum": ""
+            },
+            "require": {
+                "squizlabs/php_codesniffer": "2.3.0"
+            },
+            "require-dev": {
+                "jakub-onderka/php-parallel-lint": "0.8.*",
+                "phpunit/phpunit": "~4.1.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "MediaWiki CodeSniffer Standards",
+            "homepage": "https://www.mediawiki.org/wiki/Manual:Coding_conventions/PHP",
+            "keywords": [
+                "codesniffer",
+                "mediawiki"
+            ],
+            "time": "2015-06-19 16:36:59"
+        },
+        {
+            "name": "squizlabs/php_codesniffer",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
+                "reference": "5046b0e01c416fc2b06df961d0673c85bcdc896c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/5046b0e01c416fc2b06df961d0673c85bcdc896c",
+                "reference": "5046b0e01c416fc2b06df961d0673c85bcdc896c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-tokenizer": "*",
+                "ext-xmlwriter": "*",
+                "php": ">=5.1.2"
+            },
+            "bin": [
+                "scripts/phpcs",
+                "scripts/phpcbf"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "CodeSniffer.php",
+                    "CodeSniffer/CLI.php",
+                    "CodeSniffer/Exception.php",
+                    "CodeSniffer/File.php",
+                    "CodeSniffer/Fixer.php",
+                    "CodeSniffer/Report.php",
+                    "CodeSniffer/Reporting.php",
+                    "CodeSniffer/Sniff.php",
+                    "CodeSniffer/Tokens.php",
+                    "CodeSniffer/Reports/",
+                    "CodeSniffer/Tokenizers/",
+                    "CodeSniffer/DocGenerators/",
+                    "CodeSniffer/Standards/AbstractPatternSniff.php",
+                    "CodeSniffer/Standards/AbstractScopeSniff.php",
+                    "CodeSniffer/Standards/AbstractVariableSniff.php",
+                    "CodeSniffer/Standards/IncorrectPatternException.php",
+                    "CodeSniffer/Standards/Generic/Sniffs/",
+                    "CodeSniffer/Standards/MySource/Sniffs/",
+                    "CodeSniffer/Standards/PEAR/Sniffs/",
+                    "CodeSniffer/Standards/PSR1/Sniffs/",
+                    "CodeSniffer/Standards/PSR2/Sniffs/",
+                    "CodeSniffer/Standards/Squiz/Sniffs/",
+                    "CodeSniffer/Standards/Zend/Sniffs/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Greg Sherwood",
+                    "role": "lead"
+                }
+            ],
+            "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+            "homepage": "http://www.squizlabs.com/php-codesniffer",
+            "keywords": [
+                "phpcs",
+                "standards"
+            ],
+            "time": "2015-03-04 02:07:03"
+        }
+    ],
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {

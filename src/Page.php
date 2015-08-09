@@ -31,9 +31,9 @@ class Page extends Controller {
 	 */
 	protected $logs;
 
-  /**
-   * @param Logs $logs
-   */
+	/**
+	 * @param Logs $logs
+	 */
 	public function setLogs( Logs $logs ) {
 		$this->logs = $logs;
 	}
