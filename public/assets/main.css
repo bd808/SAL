@@ -90,6 +90,7 @@ form button {
   cursor:pointer;
   display:inline-block;
   font-family:inherit;
+  font-size:1em;
   font-weight:400;
   line-height:1.42857;
   overflow:visible;
@@ -241,16 +242,12 @@ body > .container {
   clear:both;
   margin-top:-2em;
   height:2em;
-  padding:.25em;
-  padding-right:1em;
+  padding:.25em 1em .25em .25em;
   position:relative;
   text-align:right;
   z-index:10;
 }
 
-.text-small {
-  font-size:smaller;
-}
 .sr-only {
   border:0 none;
   clip:rect(0px, 0px, 0px, 0px);
