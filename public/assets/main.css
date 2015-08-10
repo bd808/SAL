@@ -163,8 +163,7 @@ body > .container {
 }
 .container {
   height:100%;
-  padding:0 2em;
-  padding-bottom:3em;
+  padding:0 2em 3em 2em;
 }
 #search-form {
   float:left;
@@ -275,26 +274,23 @@ body > .container {
     border:none;
     position:relative;
     padding:.2em;
-    padding-left:5em;
   }
-  .sal td:before {
-    position:absolute;
-    top:.2em;
-    left:.2em;
-    padding-right:.5em;
-    white-space:nowrap;
-  }
-  .sal td.time:before { content:"time"; }
-  .sal td.nick:before { content:"nick"; }
-  .sal td.message:before { content:"mesg"; }
   .sal .time,
   .sal .nick {
+    float:left;
     font-size:inherit;
   }
   .sal .message {
+    clear:both;
     word-break:break-all;
   }
   .hits {
     clear:both;
+  }
+  .container {
+    padding:0 .5em 3em .5em;
+  }
+  .sal a.day:hover + .section {
+    display:none;
   }
 }
