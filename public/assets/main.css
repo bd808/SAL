@@ -113,6 +113,7 @@ a:hover {
   position:fixed;
   top:0px;
   width:100%;
+  z-index:10;
 }
 #logo {
   height:22px;
@@ -244,6 +245,7 @@ body > .container {
   padding-right:1em;
   position:relative;
   text-align:right;
+  z-index:10;
 }
 
 .text-small {
@@ -258,4 +260,40 @@ body > .container {
   padding:0;
   position:absolute;
   width:1px;
+}
+
+@media only screen and (max-width:760px),
+(min-device-width:768px) and (max-device-width:1024px) {
+  /* Make tables act like divs for small screens */
+  /* https://css-tricks.com/responsive-data-tables/ */
+  table, thead, tbody, th, td, tr { display:block; }
+  .sal tr {
+    margin-bottom:.25em;
+  }
+  .sal td {
+    border:none;
+    position:relative;
+    padding:.2em;
+    padding-left:5em;
+  }
+  .sal td:before {
+    position:absolute;
+    top:.2em;
+    left:.2em;
+    padding-right:.5em;
+    white-space:nowrap;
+  }
+  .sal td.time:before { content:"time"; }
+  .sal td.nick:before { content:"nick"; }
+  .sal td.message:before { content:"mesg"; }
+  .sal .time,
+  .sal .nick {
+    font-size:inherit;
+  }
+  .sal .message {
+    word-break:break-all;
+  }
+  .hits {
+    clear:both;
+  }
 }
