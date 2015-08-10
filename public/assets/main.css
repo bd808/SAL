@@ -75,6 +75,7 @@ form input {
   color:#555;
   display:inline-block;
   font-family:inherit;
+  font-size:1em;
   line-height:1.42857;
   padding:.1em .2em;
   vertical-align:middle;
@@ -169,7 +170,7 @@ body > .container {
   float:left;
 }
 #q {
-  width:15em;
+  width:14em;
 }
 .pagination {
   clear:right;
