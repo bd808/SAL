@@ -216,10 +216,10 @@ class App extends AbstractApp {
 				} )->name( 'SAL' );
 
 			}
-		); //end group '/'
+		); // end group '/'
 
 		$slim->notFound( function () use ( $slim ) {
 			$slim->render( '404.html' );
 		} );
-	} //end configureRoutes
+	} // end configureRoutes
 }
