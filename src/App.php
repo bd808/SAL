@@ -155,7 +155,7 @@ class App extends AbstractApp {
 					'https://gerrit.wikimedia.org/r/#/q/$1,n,z', '$1'
 				),
 				// Gerrit patch
-				'/\b(gerrit[:|](\d+))\b/' => array(
+				'/\b([Gg]errit[:|](\d+))\b/' => array(
 					'https://gerrit.wikimedia.org/r/#/c/$2', '$1'
 				),
 				// Phab task
@@ -163,7 +163,7 @@ class App extends AbstractApp {
 					'https://phabricator.wikimedia.org/$1', '$1'
 				),
 				// Bugzilla bug
-				'/\b(bugzilla[:|](\d+))\b/' => array(
+				'/\b([Bb]ugzilla[:|](\d+))\b/' => array(
 					'https://bugzilla.wikimedia.org/show_bug.cgi?id=$2', '$1'
 				),
 				// SVN revisions
