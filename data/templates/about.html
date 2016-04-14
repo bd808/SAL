@@ -9,7 +9,7 @@
 <p>Server admin logs</p>
 
 <h3>{{ 'about-section-toollabs'|message }}</h3>
-<p>This service is currently running in <a href="https://wikitech.wikimedia.org/wiki/Help:Tool_Labs">Wikimedia Tool Labs</a> as the <a href="https://tools.wmflabs.org/sal">sal</a> tool. It uses an <a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a> server hosted in the <a href="https://wikitech.wikimedia.org/wiki/Nova_Resource:Stashbot">stashbot</a> project of <a href="https://wikitech.wikimedia.org/wiki/Help:FAQ">Wikimedia Labs</a>. The stashbot project uses a <a href="https://www.elastic.co/products/logstash">Logstash</a> server and its <a href="https://www.elastic.co/guide/en/logstash/current/plugins-inputs-irc.html">irc input plugin</a> to collect messages from various IRC channels. The Logstash instance uses some custom rules to look for messages in the IRC channels that start with <kbd>!log</kbd> and adds them to a special Elasticsearch index.</p>
+<p>This service is currently running in <a href="https://wikitech.wikimedia.org/wiki/Portal:Tool_Labs">Wikimedia Tool Labs</a> as the <a href="https://tools.wmflabs.org/sal">sal</a> tool. It uses an <a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a> index maintained by <a href="https://github.com/bd808/tools-stashbot">a Python IRC bot</a> which collects messaegs that start with <kbd>!log</kbd> from various <a href="https://freenode.net/">freenode</a> channels.</p>
 
 <h3>{{ 'about-section-credits'|message }}</h3>
 <p>Favicon/logo from <a href="http://glyphicons.com/">glyphicons.com</a> (<a href="https://creativecommons.org/licenses/by/3.0/">CC-BY 3.0</a>)</p>
