@@ -21,13 +21,13 @@ namespace Bd808\Sal;
 
 use Elastica\Aggregation\Terms;
 use Elastica\Client;
-use Elastica\Filter\Term;
 use Elastica\Query;
 use Elastica\Query\BoolQuery;
 use Elastica\Query\FunctionScore;
 use Elastica\Query\Ids;
 use Elastica\Query\Range;
 use Elastica\Query\SimpleQueryString;
+use Elastica\Query\Term;
 use Elastica\ResultSet;
 use Elastica\Search;
 use Psr\Log\LoggerInterface;
