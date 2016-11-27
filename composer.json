@@ -4,10 +4,12 @@
   "homepage": "https://tools.wmflabs.org/sal/",
   "require": {
     "bd808/monolog-udp2log-handler": "~1.0",
-    "monolog/monolog": "~1.15",
+    "ext-curl": "*",
     "guzzlehttp/guzzle": "~6.0",
-    "wikimedia/slimapp": "dev-master",
-    "ruflin/elastica": "~3.2"
+    "monolog/monolog": "~1.15",
+    "php": ">=5.5.9",
+    "ruflin/elastica": "~3.2",
+    "wikimedia/slimapp": "dev-master"
   },
   "autoload": {
     "psr-4": {
@@ -19,9 +21,10 @@
     "mediawiki/mediawiki-codesniffer": "~0.3"
   },
   "scripts": {
+    "fix": "phpcbf",
     "test": [
       "parallel-lint . --exclude vendor",
-      "phpcs --standard=vendor/mediawiki/mediawiki-codesniffer/MediaWiki --ignore=vendor --extensions=php -v src public"
+      "phpcs -p"
     ]
   },
   "config": {

@@ -42,12 +42,12 @@ class LinkifyExtension extends \Twig_Extension {
 	}
 
 	public function getFilters() {
-		return array(
+		return [
 			new \Twig_SimpleFilter(
-				'linkify', array( $this, 'linkifyFilterCallback' ),
-				array( 'is_safe' => array( 'html' ) )
+				'linkify', [ $this, 'linkifyFilterCallback' ],
+				[ 'is_safe' => [ 'html' ] ]
 			),
-		);
+		];
 	}
 
 	public function linkifyFilterCallback( $text ) {

@@ -50,9 +50,9 @@ class Logs {
 	/**
 	 * @var array $DEFAULT_FIELDS
 	 */
-	protected static $DEFAULT_FIELDS = array(
+	protected static $DEFAULT_FIELDS = [
 		'@timestamp', 'project', 'nick', 'message',
-	);
+	];
 
 	public function __construct(
 		Client $client, LoggerInterface $logger = null
@@ -118,36 +118,36 @@ class Logs {
 	 *   - page: Page of results to return (0-index)
 	 * @return ResultSet
 	 */
-	public function search( array $params = array() ) {
-		$params = array_merge( array(
+	public function search( array $params = [] ) {
+		$params = array_merge( [
 			'project' => 'production',
 			'query' => null,
 			'items' => 20,
 			'page' => 0,
 			'date' => null,
-		), $params );
+		], $params );
 
 		$filters = new BoolQuery();
 
 		if ( $params['query'] !== null ) {
 			$filters->addMust( new SimpleQueryString(
-				$params['query'], array( 'message', 'nick' )
+				$params['query'], [ 'message', 'nick' ]
 			) );
 		}
 		if ( $params['date'] !== null ) {
 			$filters->addMust( new Range(
-				'@timestamp', array( 'lte' => "{$params['date']}||/d" )
+				'@timestamp', [ 'lte' => "{$params['date']}||/d" ]
 			) );
 		}
 
 		$query = new Query( $filters );
 		$query->setPostFilter(
-			new Term( array( 'project' => $params['project'] ) )
+			new Term( [ 'project' => $params['project'] ] )
 		);
 		$query->setFrom( $params['page'] * $params['items'] )
 			->setSize( $params['items'] )
 			->setFields( self::$DEFAULT_FIELDS )
-			->setSort( array( '@timestamp' => array( 'order' => 'desc' ) ) );
+			->setSort( [ '@timestamp' => [ 'order' => 'desc' ] ] );
 		return $this->doSearch( $query );
 	}
 }

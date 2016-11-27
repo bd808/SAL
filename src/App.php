@@ -39,7 +39,7 @@ class App extends AbstractApp {
 	 * @param \Slim\Slim $slim Application
 	 */
 	protected function configureSlim( \Slim\Slim $slim ) {
-		$slim->config( array(
+		$slim->config( [
 			'parsoid.url' => Config::getStr( 'PARSOID_URL',
 				'http://parsoid-lb.eqiad.wikimedia.org/enwiki/'
 			),
@@ -47,36 +47,35 @@ class App extends AbstractApp {
 				"{$this->deployDir}/data/cache"
 			),
 			'es.url' => Config::getStr( 'ES_URL', 'http://127.0.0.1:9200/' ),
-		) );
+		] );
 
 		$slim->configureMode( 'production', function () use ( $slim ) {
-			$slim->config( array(
+			$slim->config( [
 				'debug' => false,
 				'log.level' => Config::getStr( 'LOG_LEVEL', 'INFO' ),
-			) );
+			] );
 
 			// Install a custom error handler
 			$slim->error( function ( \Exception $e ) use ( $slim ) {
 				$errorId = substr( session_id(), 0, 8 ) . '-' .
 					substr( uniqid(), -8 );
-				$slim->log->critical( $e->getMessage(), array(
+				$slim->log->critical( $e->getMessage(), [
 					'exception' => $e,
 					'errorId' => $errorId,
-				) );
+				] );
 				$slim->view->set( 'errorId', $errorId );
 				$slim->render( 'error.html' );
 			} );
 		} );
 
 		$slim->configureMode( 'development', function () use ( $slim ) {
-			$slim->config( array(
+			$slim->config( [
 				'debug' => true,
 				'log.level' => Config::getStr( 'LOG_LEVEL', 'DEBUG' ),
 				'view.cache' => false,
-			) );
+			] );
 		} );
 	}
-
 
 	/**
 	 * Configure inversion of control/dependency injection container.
@@ -98,7 +97,7 @@ class App extends AbstractApp {
 
 		$container->singleton( 'mailer',  function ( $c ) {
 			return new Mailer(
-				array( 'Host' => $c->settings['smtp.host'] ),
+				[ 'Host' => $c->settings['smtp.host'] ],
 				$c->log
 			);
 		} );
@@ -113,9 +112,9 @@ class App extends AbstractApp {
 
 		$container->singleton( 'logs', function ( $c ) {
 			return new Logs(
-				new \Elastica\Client( array(
+				new \Elastica\Client( [
 					'url' => $c->settings['es.url'],
-				) ),
+				] ),
 				$c->log
 			);
 		} );
@@ -123,66 +122,64 @@ class App extends AbstractApp {
 		// TODO: figure out where to send logs
 	}
 
-
 	/**
 	 * Configure view behavior.
 	 *
 	 * @param \Slim\View $view Default view
 	 */
 	protected function configureView( \Slim\View $view ) {
-		$view->parserOptions = array(
+		$view->parserOptions = [
 			'charset' => 'utf-8',
 			'cache' => $this->slim->config( 'view.cache' ),
 			'debug' => $this->slim->config( 'debug' ),
 			'auto_reload' => true,
 			'strict_variables' => false,
 			'autoescape' => true,
-		);
+		];
 
 		// Install twig parser extensions
-		$view->parserExtensions = array(
+		$view->parserExtensions = [
 			new \Slim\Views\TwigExtension(),
 			new TwigExtension( $this->slim->parsoid ),
 			new \Wikimedia\SimpleI18n\TwigExtension( $this->slim->i18nContext ),
 			new \Twig_Extension_Debug(),
-			new LinkifyExtension( array(
+			new LinkifyExtension( [
 				// Gerrit change-id
-				'/(?<=^|\s)\b(I[0-9a-f]{6,})\b(?=\s|:|,|$)/' => array(
+				'/(?<=^|\s)\b(I[0-9a-f]{6,})\b(?=\s|:|,|$)/' => [
 					'https://gerrit.wikimedia.org/r/#/q/$1,n,z', '$1'
-				),
+				],
 				// Git commit hash
-				'/(?<=^|\s|\(|\[)\b([0-9a-f]{7,})\b(?=\s|:|,|\)|\]|$)/' => array(
+				'/(?<=^|\s|\(|\[)\b([0-9a-f]{7,})\b(?=\s|:|,|\)|\]|$)/' => [
 					'https://gerrit.wikimedia.org/r/#/q/$1,n,z', '$1'
-				),
+				],
 				// Gerrit patch
-				'/\b([Gg]errit[:|](\d+))\b/' => array(
+				'/\b([Gg]errit[:|](\d+))\b/' => [
 					'https://gerrit.wikimedia.org/r/#/c/$2', '$1'
-				),
+				],
 				// Phab task
-				'#(?<!/)\b(T\d+)\b#' => array(
+				'#(?<!/)\b(T\d+)\b#' => [
 					'https://phabricator.wikimedia.org/$1', '$1'
-				),
+				],
 				// Bugzilla bug
-				'/\b([Bb]ugzilla[:|](\d+))\b/' => array(
+				'/\b([Bb]ugzilla[:|](\d+))\b/' => [
 					'https://bugzilla.wikimedia.org/show_bug.cgi?id=$2', '$1'
-				),
+				],
 				// SVN revisions
-				'/(?<=^|\s)\br(\d+)\b(?=\s|:|,|$)/' => array(
+				'/(?<=^|\s)\br(\d+)\b(?=\s|:|,|$)/' => [
 					'https://www.mediawiki.org/wiki/Special:Code/MediaWiki/$1',
 					'$0'
-				),
+				],
 				// Raw url
-				'#(?<=^|\s)<?(https?://\S+)>?(?=\s|$)#' => array( '$1', '$0' ),
-			) ),
-		);
+				'#(?<=^|\s)<?(https?://\S+)>?(?=\s|$)#' => [ '$1', '$0' ],
+			] ),
+		];
 
 		// Set default view data
-		$view->replace( array(
+		$view->replace( [
 			'app' => $this->slim,
 			'i18nCtx' => $this->slim->i18nContext,
-		) );
+		] );
 	}
-
 
 	/**
 	 * Configure routes to be handled by application.

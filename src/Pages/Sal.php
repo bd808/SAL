@@ -29,26 +29,26 @@ class Sal extends Page {
 	protected function handleGet( $project ) {
 		$this->form->expectString( 'q' );
 		$this->form->expectInt( 'p',
-			array( 'min_range' => 0, 'default' => 0 )
+			[ 'min_range' => 0, 'default' => 0 ]
 		);
 		$this->form->expectInt( 'i',
-			array( 'min_range' => 1, 'max_range' => 200, 'default' => 50 )
+			[ 'min_range' => 1, 'max_range' => 200, 'default' => 50 ]
 		);
-		$this->form->expectRegex( 'd', '/\d{4}-\d{2}-\d{2}/', array(
+		$this->form->expectRegex( 'd', '/\d{4}-\d{2}-\d{2}/', [
 			'validate' => function ( $v ) {
 				return date( 'Y-m-d', strtotime( $v ) ) === $v &&
 					strtotime( $v ) <= time();
 			}
-		) );
+		] );
 		$this->form->validate( $_GET );
 
-		$params = array(
+		$params = [
 			'project' => $project,
 			'query' => $this->form->get( 'q' ),
 			'page' => $this->form->get( 'p' ),
 			'items' => $this->form->get( 'i' ),
 			'date' => $this->form->get( 'd' ),
-		);
+		];
 		$ret = $this->logs->search( $params );
 		list( $pageCount, $first, $last ) = $this->pagination(
 			$ret->getTotalHits(), $params['page'], $params['items'] );
