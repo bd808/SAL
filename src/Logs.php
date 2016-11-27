@@ -136,7 +136,7 @@ class Logs {
 		}
 		if ( $params['date'] !== null ) {
 			$filters->addMust( new Range(
-				'@timestamp', array( 'lte' => $params['date'] )
+				'@timestamp', array( 'lte' => "{$params['date']}||/d" )
 			) );
 		}
 
