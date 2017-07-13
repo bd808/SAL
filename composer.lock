@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "638658c113428333e608df4dbbd73946",
-    "content-hash": "c706cd89f12df05d3a37fe8f5789dbe3",
+    "content-hash": "6746f1ad8141a13806c561fa70462e35",
     "packages": [
         {
             "name": "bd808/monolog-udp2log-handler",
@@ -53,7 +52,7 @@
                 "monolog",
                 "udp2log"
             ],
-            "time": "2015-02-26 05:01:15"
+            "time": "2015-02-26T05:01:15+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -115,7 +114,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-10-08 15:01:37"
+            "time": "2016-10-08T15:01:37+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -166,7 +165,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2016-11-18 17:47:58"
+            "time": "2016-11-18T17:47:58+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -224,7 +223,7 @@
                 "stream",
                 "uri"
             ],
-            "time": "2016-06-24 23:00:38"
+            "time": "2016-06-24T23:00:38+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -302,7 +301,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-11-26 00:15:39"
+            "time": "2016-11-26T00:15:39+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
@@ -362,7 +361,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2016-06-06 09:09:37"
+            "time": "2016-06-06T09:09:37+00:00"
         },
         {
             "name": "psr/http-message",
@@ -412,7 +411,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06 14:39:51"
+            "time": "2016-08-06T14:39:51+00:00"
         },
         {
             "name": "psr/log",
@@ -459,64 +458,31 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10 12:19:37"
+            "time": "2016-10-10T12:19:37+00:00"
         },
         {
             "name": "ruflin/elastica",
-            "version": "3.2.3",
+            "version": "5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ruflin/Elastica.git",
-                "reference": "02bf2fbb8ad6b679869af145eed89436a1c50229"
+                "reference": "tags/5.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ruflin/Elastica/zipball/02bf2fbb8ad6b679869af145eed89436a1c50229",
-                "reference": "02bf2fbb8ad6b679869af145eed89436a1c50229",
-                "shasum": ""
+                "url": "https://github.com/ruflin/Elastica/archive/5.1.0.zip",
+                "reference": "tags/5.1.0",
+                "shasum": null
             },
             "require": {
-                "php": ">=5.4.0",
-                "psr/log": "~1.0"
-            },
-            "require-dev": {
-                "aws/aws-sdk-php": "~3.0",
-                "guzzlehttp/guzzle": "~6.0"
-            },
-            "suggest": {
-                "aws/aws-sdk-php": "Allow using IAM authentication with Amazon ElasticSearch Service",
-                "egeloen/http-adapter": "Allow using httpadapter transport",
-                "guzzlehttp/guzzle": "Allow using guzzle 6 as the http transport (Requires php 5.5)",
-                "monolog/monolog": "Logging request"
+                "php": ">=5.5.0 <5.6.0"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.2.x-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Elastica\\": "lib/Elastica/"
                 }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nicolas Ruflin",
-                    "homepage": "http://ruflin.com/"
-                }
-            ],
-            "description": "Elasticsearch Client",
-            "homepage": "http://elastica.io/",
-            "keywords": [
-                "client",
-                "search"
-            ],
-            "time": "2016-09-23 10:24:25"
+            }
         },
         {
             "name": "slim/slim",
@@ -562,7 +528,7 @@
                 "rest",
                 "router"
             ],
-            "time": "2015-03-08 18:41:17"
+            "time": "2015-03-08T18:41:17+00:00"
         },
         {
             "name": "slim/views",
@@ -615,7 +581,7 @@
                 "slimphp",
                 "templating"
             ],
-            "time": "2014-12-09 23:48:51"
+            "time": "2014-12-09T23:48:51+00:00"
         },
         {
             "name": "twig/twig",
@@ -676,7 +642,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-11-23 18:41:40"
+            "time": "2016-11-23T18:41:40+00:00"
         },
         {
             "name": "wikimedia/simplei18n",
@@ -729,7 +695,7 @@
                 "l10n",
                 "localization"
             ],
-            "time": "2014-11-20 00:55:34"
+            "time": "2014-11-20T00:55:34+00:00"
         },
         {
             "name": "wikimedia/slimapp",
@@ -782,7 +748,7 @@
             ],
             "description": "Common classes to help with creating an application using the Slim micro framework and Twig template engine.",
             "homepage": "https://github.com/wikimedia/wikimedia-slimapp",
-            "time": "2016-11-23 18:29:30"
+            "time": "2016-11-23T18:29:30+00:00"
         }
     ],
     "packages-dev": [
@@ -831,7 +797,7 @@
             ],
             "description": "This tool check syntax of PHP files about 20x faster than serial check.",
             "homepage": "https://github.com/JakubOnderka/PHP-Parallel-Lint",
-            "time": "2015-12-15 10:42:16"
+            "time": "2015-12-15T10:42:16+00:00"
         },
         {
             "name": "mediawiki/mediawiki-codesniffer",
@@ -867,7 +833,7 @@
                 "codesniffer",
                 "mediawiki"
             ],
-            "time": "2016-05-28 01:08:59"
+            "time": "2016-05-28T01:08:59+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -945,7 +911,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-04-03 22:58:34"
+            "time": "2016-04-03T22:58:34+00:00"
         }
     ],
     "aliases": [],
