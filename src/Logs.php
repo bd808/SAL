@@ -47,13 +47,6 @@ class Logs {
 	 */
 	protected $logger;
 
-	/**
-	 * @var array $DEFAULT_FIELDS
-	 */
-	protected static $DEFAULT_FIELDS = [
-		'@timestamp', 'project', 'nick', 'message',
-	];
-
 	public function __construct(
 		Client $client, LoggerInterface $logger = null
 	) {
@@ -81,8 +74,8 @@ class Logs {
 	public function getProjects() {
 		$agg = new Terms( 'projects' );
 		$agg->setField( 'project' );
-		$agg->setSize( 0 );
-		$agg->setShardSize( 0 );
+		$agg->setSize( 10000 );
+		$agg->setShardSize( 10000 );
 		$agg->setOrder( '_term', 'asc' );
 		$query = new Query();
 		$query->addAggregation( $agg );
@@ -103,8 +96,7 @@ class Logs {
 		$ids->setIds( $id );
 		$query = new Query( $ids );
 		$query->setFrom( 0 )
-			->setSize( 1 )
-			->setFields( self::$DEFAULT_FIELDS );
+			->setSize( 1 );
 		return $this->doSearch( $query );
 	}
 
@@ -146,7 +138,6 @@ class Logs {
 		);
 		$query->setFrom( $params['page'] * $params['items'] )
 			->setSize( $params['items'] )
-			->setFields( self::$DEFAULT_FIELDS )
 			->setSort( [ '@timestamp' => [ 'order' => 'desc' ] ] );
 		return $this->doSearch( $query );
 	}
