@@ -30,7 +30,7 @@
 <table class="sal">
   {% for log in results %}
   {% set data = log.getData() %}
-  {% set day = data['@timestamp'][0]|date('Y-m-d') %}
+  {% set day = data['@timestamp']|date('Y-m-d') %}
   {% if day is not same as(last_day) %}
   <tbody>
   <tr>
