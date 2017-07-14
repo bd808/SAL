@@ -211,7 +211,6 @@ class App extends AbstractApp {
 					$page->setLogs( $slim->logs );
 					$page( $project );
 				} )->name( 'SAL' );
-
 			}
 		); // end group '/'
 

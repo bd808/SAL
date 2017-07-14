@@ -1,3 +1,4 @@
 /.env
+/.php-version
 /data/cache
 /vendor
