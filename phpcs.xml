@@ -1,7 +1,32 @@
 <?xml version="1.0"?>
 <ruleset name="SAL">
-	<rule ref="vendor/mediawiki/mediawiki-codesniffer/MediaWiki"/>
 	<file>.</file>
 	<exclude-pattern>vendor/</exclude-pattern>
-	<exclude-pattern>.git</exclude-pattern>
+    <exclude-pattern>.git</exclude-pattern>
+
+	<arg name="encoding" value="utf-8"/>
+	<arg name="extensions" value="php"/>
+	<arg name="report" value="full"/>
+	<arg name="report" value="summary"/>
+	<arg value="sp"/>
+
+	<rule ref="vendor/mediawiki/mediawiki-codesniffer/MediaWiki"/>
+	<rule ref="MediaWiki.Commenting.FunctionComment.MissingReturn">
+		<severity>0</severity>
+	</rule>
+	<rule ref="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment">
+		<severity>0</severity>
+	</rule>
+	<rule ref="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic">
+		<severity>0</severity>
+	</rule>
+	<rule ref="MediaWiki.Commenting.FunctionComment.MissingParamComment">
+		<severity>0</severity>
+	</rule>
+	<rule ref="MediaWiki.Commenting.FunctionComment.MissingDocumentationProtected">
+		<severity>0</severity>
+	</rule>
+	<rule ref="MediaWiki.Usage.SuperGlobalsUsage.SuperGlobals">
+		<severity>0</severity>
+	</rule>
 </ruleset>
