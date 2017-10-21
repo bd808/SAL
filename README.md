@@ -3,10 +3,10 @@ SAL server
 
 Display log messages from IRC.
 
-Wikimedia Tool Labs
+Wikimedia Toolforge
 -------------------
 
-This service is currently running in [Wikimedia Tool Labs][] as the [sal][]
+This service is currently running in [Wikimedia Toolforge][] as the [sal][]
 tool. It uses an [Elasticsearch][] index maintained by [a Python IRC bot][]
 which collects messaegs that start with `!log` from various [freenode][]
 channels.
@@ -23,7 +23,7 @@ License
 
 
 ---
-[Wikimedia Tool Labs]: https://wikitech.wikimedia.org/wiki/Portal:Tool_Labs
+[Wikimedia Toolforge]: https://wikitech.wikimedia.org/wiki/Portal:Toolforge
 [Elasticsearch]: https://www.elastic.co/products/elasticsearch
 [sal]: https://tools.wmflabs.org/sal
 [a Python IRC bot]: https://github.com/bd808/tools-stashbot
