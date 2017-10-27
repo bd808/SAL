@@ -8,7 +8,7 @@ Wikimedia Toolforge
 
 This service is currently running in [Wikimedia Toolforge][] as the [sal][]
 tool. It uses an [Elasticsearch][] index maintained by [a Python IRC bot][]
-which collects messaegs that start with `!log` from various [freenode][]
+which collects messages that start with `!log` from various [freenode][]
 channels.
 
 
