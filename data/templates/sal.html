@@ -26,7 +26,6 @@
 {% if pages > 1 %}
 {% include 'inc/pagination.html' %}
 {% endif %}
-{% spaceless %}
 <table class="sal">
   {% for log in results %}
   {% set data = log.getData() %}
@@ -46,7 +45,6 @@
   {% set last_day = day %}
   {% endfor %}
 </table>
-{% endspaceless %}
 {% if pages > 1 %}
 {% include 'inc/pagination.html' %}
 {% endif %}

@@ -3,7 +3,6 @@
 {% block title %}{{ 'title-log'|message }} - {{ parent() }}{% endblock title %}
 
 {% block content %}
-{% spaceless %}
 <table class="sal">
   {% for log in results %}
   {% set data = log.getData() %}
@@ -14,5 +13,4 @@
   {% include 'inc/log.html' %}
   {% endfor %}
 </table>
-{% endspaceless %}
 {% endblock content %}
