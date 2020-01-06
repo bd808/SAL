@@ -217,7 +217,8 @@ body > .container {
 .sal .project {
 	font-size:smaller;
 }
-.sal .nick {
+.sal .nick,
+.sal .project {
 	color:#666;
 }
 .sal a.day {
