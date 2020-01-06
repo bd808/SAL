@@ -2,4 +2,5 @@
   <td class="time"><a href="{{ urlFor( 'log', { 'id': log.getId() } ) }}">{{ data['@timestamp']|date('H:i') }}</a></td>
   <td class="nick">&lt;{{ data['nick'] }}&gt;</td>
   <td class="message">{{ data['message']|linkify }}</td>
+  <td class="project">[{{ data['project'] }}]</td>
 </tr>

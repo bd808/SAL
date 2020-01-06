@@ -8,7 +8,7 @@
   {% set data = log.getData() %}
   <tbody>
   <tr>
-    <th colspan="3">{{ data['@timestamp']|date('Y-m-d') }} - {{ data['project'] }}</th>
+    <th colspan="4">{{ data['@timestamp']|date('Y-m-d') }} - {{ data['project'] }}</th>
   </tr>
   {% include 'inc/log.html' %}
   {% endfor %}

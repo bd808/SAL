@@ -213,7 +213,8 @@ body > .container {
 	text-align:left;
 }
 .sal .time,
-.sal .nick {
+.sal .nick,
+.sal .project {
 	font-size:smaller;
 }
 .sal .nick {
