@@ -132,9 +132,11 @@ class Logs {
 		}
 
 		$query = new Query( $filters );
-		$query->setPostFilter(
-			new Term( [ 'project' => $params['project'] ] )
-		);
+		if ( $params['project'] !== '__all__' ) {
+			$query->setPostFilter(
+				new Term( [ 'project' => $params['project'] ] )
+			);
+		}
 		$query->setFrom( $params['page'] * $params['items'] )
 			->setSize( $params['items'] )
 			->setSort( [ '@timestamp' => [ 'order' => 'desc' ] ] );

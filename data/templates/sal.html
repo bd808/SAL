@@ -12,7 +12,7 @@
   <input type="hidden" name="p" value="0">
   <div>
     <label class="sr-only" for="q">{{ 'search-q-empty'|message }}</label>
-    <input type="text" id="q" name="q" placeholder="{{ 'search-query'|message( project ) }}" value="{{ q }}">
+    <input type="text" id="q" name="q" placeholder="{{ 'search-query'|message( project == '__all__' ? '' : project ) }}" value="{{ q }}">
   </div>
   <div>
     <label class="sr-only" for="d">{{ 'search-d-empty'|message }}</label>

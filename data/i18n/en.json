@@ -15,6 +15,7 @@
 	"error-message": "gj you broked it. maybe it will work if you repeatedly reload the page.",
 	"header-title": "SAL",
 	"nav-about": "about",
+	"nav-firehose": "Firehose",
 	"nav-production": "Prod",
 	"nav-projects": "Other",
 	"nav-releng": "RelEng",
