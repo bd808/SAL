@@ -7,6 +7,7 @@
     "ext-curl": "*",
     "guzzlehttp/guzzle": "^6.0",
     "monolog/monolog": "^1.15",
+    "php": ">=7.3.0",
     "ruflin/elastica": "^5.1.0",
     "wikimedia/slimapp": "dev-master"
   },
@@ -17,7 +18,7 @@
   },
   "require-dev": {
     "jakub-onderka/php-parallel-lint": "~0.9",
-    "mediawiki/mediawiki-codesniffer": "~0.10"
+    "mediawiki/mediawiki-codesniffer": "28.0.0"
   },
   "scripts": {
     "fix": "phpcbf",

@@ -23,7 +23,6 @@ use Elastica\Aggregation\Terms;
 use Elastica\Client;
 use Elastica\Query;
 use Elastica\Query\BoolQuery;
-use Elastica\Query\FunctionScore;
 use Elastica\Query\Ids;
 use Elastica\Query\Range;
 use Elastica\Query\SimpleQueryString;
