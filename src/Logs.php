@@ -72,7 +72,7 @@ class Logs {
 	 */
 	public function getProjects() {
 		$agg = new Terms( 'projects' );
-		$agg->setField( 'project' );
+		$agg->setField( 'project.keyword' );
 		$agg->setSize( 10000 );
 		$agg->setShardSize( 10000 );
 		$agg->setOrder( '_term', 'asc' );
@@ -134,7 +134,7 @@ class Logs {
 		$query = new Query( $filters );
 		if ( $params['project'] !== '__all__' ) {
 			$query->setPostFilter(
-				new Term( [ 'project' => $params['project'] ] )
+				new Term( [ 'project.keyword' => $params['project'] ] )
 			);
 		}
 		$query->setFrom( $params['page'] * $params['items'] )
