@@ -3,12 +3,10 @@
   "license": "GPL-3.0+",
   "homepage": "https://tools.wmflabs.org/sal/",
   "require": {
-    "bd808/monolog-udp2log-handler": "~1.0",
     "ext-curl": "*",
     "guzzlehttp/guzzle": "^6.0",
-    "monolog/monolog": "^1.15",
     "php": ">=7.3.0",
-    "ruflin/elastica": "^5.1.0",
+    "ruflin/elastica": "^7.0-beta",
     "wikimedia/slimapp": "dev-master"
   },
   "autoload": {
@@ -17,7 +15,7 @@
     }
   },
   "require-dev": {
-    "jakub-onderka/php-parallel-lint": "~0.9",
+    "php-parallel-lint/php-parallel-lint": "^1.2.0",
     "mediawiki/mediawiki-codesniffer": "28.0.0"
   },
   "scripts": {

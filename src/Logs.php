@@ -61,7 +61,7 @@ class Logs {
 	 */
 	protected function doSearch( Query $q ) {
 		$search = new Search( $this->client );
-		$search->addIndex( 'sal' )->addType( 'sal' );
+		$search->addIndex( 'sal' );
 		$search->setQuery( $q );
 		return $search->search();
 	}
