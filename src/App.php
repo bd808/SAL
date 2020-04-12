@@ -115,9 +115,16 @@ class App extends AbstractApp {
 		$container->singleton( 'logs', function ( $c ) {
 			$settings = [
 				'url' => $c->settings['es.url'],
-				'user' => $c->settings['es.user'],
-				'password' => $c->settings['es.password'],
 			];
+			if ( $c->settings['es.user'] !== '' ) {
+				$creds = base64_encode(
+					$c->settings['es.user'] . ':' .
+					$c->settings['es.password']
+				);
+				$settings['headers'] = [
+					'Authorization' => "Basic {$creds}",
+				];
+			}
 			return new Logs( new \Elastica\Client( $settings ), $c->log );
 		} );
 
