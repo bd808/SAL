@@ -47,6 +47,8 @@ class App extends AbstractApp {
 				"{$this->deployDir}/data/cache"
 			),
 			'es.url' => Config::getStr( 'ES_URL', 'http://127.0.0.1:9200/' ),
+			'es.user' => Config::getStr( 'ES_USER', null ),
+			'es.password' => Config::getStr( 'ES_PASSWORD', null ),
 		] );
 
 		$slim->configureMode( 'production', function () use ( $slim ) {
@@ -111,12 +113,12 @@ class App extends AbstractApp {
 		} );
 
 		$container->singleton( 'logs', function ( $c ) {
-			return new Logs(
-				new \Elastica\Client( [
-					'url' => $c->settings['es.url'],
-				] ),
-				$c->log
-			);
+			$settings = [
+				'url' => $c->settings['es.url'],
+				'user' => $c->settings['es.user'],
+				'password' => $c->settings['es.password'],
+			];
+			return new Logs( new \Elastica\Client( $settings ), $c->log );
 		} );
 
 		// TODO: figure out where to send logs
