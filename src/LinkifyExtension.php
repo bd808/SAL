@@ -51,6 +51,7 @@ class LinkifyExtension extends \Twig_Extension {
 	}
 
 	public function linkifyFilterCallback( $text ) {
+		$text = htmlspecialchars( $text );
 		$text = preg_replace(
 			array_keys( $this->mappings ),
 			array_map( function ( $v ) {
