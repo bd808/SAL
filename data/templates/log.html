@@ -8,7 +8,7 @@
   {% set data = log.getData() %}
   <tbody>
   <tr>
-    <th colspan="4">{{ data['@timestamp']|date('Y-m-d') }} - {{ data['project'] }}</th>
+    <th colspan="4">{{ data['@timestamp']|date('Y-m-d') }} - <a href="{{ urlFor( 'SAL', { 'project': data['project'] } ) }}">{{ data['project'] }}</a></th>
   </tr>
   {% include 'inc/log.html' %}
   {% endfor %}
