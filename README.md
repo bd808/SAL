@@ -8,7 +8,7 @@ Wikimedia Toolforge
 
 This service is currently running in [Wikimedia Toolforge][] as the [sal][]
 tool. It uses an [Elasticsearch][] index maintained by [a Python IRC bot][]
-which collects messages that start with `!log` from various [freenode][]
+which collects messages that start with `!log` from various [libera][]
 channels.
 
 
@@ -27,4 +27,4 @@ License
 [Elasticsearch]: https://www.elastic.co/products/elasticsearch
 [sal]: https://tools.wmflabs.org/sal
 [a Python IRC bot]: https://github.com/bd808/tools-stashbot
-[freenode]: https://freenode.net/
+[Libera]: https://libera.chat/
