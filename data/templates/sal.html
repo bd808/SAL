@@ -5,6 +5,10 @@
 {% set last = min( first + i - 1, all ) %}
 {% set last_day = '' %}
 
+{% block head %}
+<link href="{{ urlFor( 'SAL (Atom)', { 'project': project } ) }}" type="application/atom+xml" rel="alternate" title="Atom feed" />
+{% endblock head %}
+
 {% block title %}{{ 'title-sal'|message( project ) }} - {{ parent() }}{% endblock title %}
 
 {% block content %}
