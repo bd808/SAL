@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ project }}</title>
+  <link href="{{ siteUrl( urlFor( 'SAL (Atom)', { 'project': project } ) ) }}" rel="self" />
+  <link href="{{ siteUrl( urlFor( 'SAL', { 'project': project } ) ) }}" />
+  <id>{{ siteUrl( urlFor( 'SAL', { 'project': project } ) ) }}</id>
+  {% if results %}
+  {% set latest_result_data = results[0].getData() %}
+  <updated>{{ latest_result_data['@timestamp'] }}</updated>
+  {% for log in results %}
+  <entry>
+    {% set data = log.getData() %}
+    <title>{{ data['message'] }}</title>
+    <link href="{{ siteUrl( urlFor( 'log', { 'id': log.getId() } ) ) }}" />
+    <id>{{ siteUrl( urlFor( 'log', { 'id': log.getId() } ) ) }}</id>
+    <published>{{ data['@timestamp'] }}</published>
+    <updated>{{ data['@timestamp'] }}</updated>
+    <content type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">
+        {{ data['message']|linkify }}
+      </div>
+    </content>
+    <author>
+      <name>{{ data['nick'] }}</name>
+    </author>
+  </entry>
+  {% endfor %}
+  {% endif %}
+</feed>
