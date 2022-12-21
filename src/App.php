@@ -221,7 +221,7 @@ class App extends AbstractApp {
 					$page( $project );
 				} )->name( 'SAL' );
 
-				$slim->get( 'atom/(:project)', function ( $project = 'production' ) use ( $slim ) {
+				$slim->get( 'atom/(:project)', static function ( $project = 'production' ) use ( $slim ) {
 					$page = new Pages\SalAtom( $slim );
 					$page->setI18nContext( $slim->i18nContext );
 					$page->setLogs( $slim->logs );
