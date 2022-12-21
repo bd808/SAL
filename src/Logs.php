@@ -37,12 +37,12 @@ use Psr\Log\LoggerInterface;
  */
 class Logs {
 	/**
-	 * @var Client $client
+	 * @var Client
 	 */
 	protected $client;
 
 	/**
-	 * @var LoggerInterface $logger
+	 * @var LoggerInterface
 	 */
 	protected $logger;
 
@@ -79,7 +79,7 @@ class Logs {
 		$query = new Query();
 		$query->addAggregation( $agg );
 		$res = $this->doSearch( $query )->getAggregation( 'projects' );
-		return array_map( function ( $b ) {
+		return array_map( static function ( $b ) {
 			return $b['key'];
 		}, $res['buckets'] );
 	}

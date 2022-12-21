@@ -25,7 +25,7 @@ require_once APP_ROOT . '/vendor/autoload.php';
 
 // Ensure that a default timezone is set
 set_error_handler(
-	function ( $errno, $errstr ) {
+	static function ( $errno, $errstr ) {
 			throw new Exception( $errstr );
 	}
 );

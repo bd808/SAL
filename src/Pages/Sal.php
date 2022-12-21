@@ -35,7 +35,7 @@ class Sal extends Page {
 			[ 'min_range' => 1, 'max_range' => 200, 'default' => 50 ]
 		);
 		$this->form->expectRegex( 'd', '/\d{4}-\d{2}-\d{2}/', [
-			'validate' => function ( $v ) {
+			'validate' => static function ( $v ) {
 				return date( 'Y-m-d', strtotime( $v ) ) === $v &&
 					strtotime( $v ) <= time();
 			}
