@@ -51,14 +51,14 @@ class App extends AbstractApp {
 			'es.password' => Config::getStr( 'ES_PASSWORD', null ),
 		] );
 
-		$slim->configureMode( 'production', function () use ( $slim ) {
+		$slim->configureMode( 'production', static function () use ( $slim ) {
 			$slim->config( [
 				'debug' => false,
 				'log.level' => Config::getStr( 'LOG_LEVEL', 'INFO' ),
 			] );
 
 			// Install a custom error handler
-			$slim->error( function ( \Exception $e ) use ( $slim ) {
+			$slim->error( static function ( \Exception $e ) use ( $slim ) {
 				$errorId = substr( session_id(), 0, 8 ) . '-' .
 					substr( uniqid(), -8 );
 				$slim->log->critical( $e->getMessage(), [
@@ -70,7 +70,7 @@ class App extends AbstractApp {
 			} );
 		} );
 
-		$slim->configureMode( 'development', function () use ( $slim ) {
+		$slim->configureMode( 'development', static function () use ( $slim ) {
 			$slim->config( [
 				'debug' => true,
 				'log.level' => Config::getStr( 'LOG_LEVEL', 'DEBUG' ),
@@ -85,26 +85,26 @@ class App extends AbstractApp {
 	 * @param \Slim\Helper\Set $container IOC container
 	 */
 	protected function configureIoc( \Slim\Helper\Set $container ) {
-		$container->singleton( 'i18nCache', function ( $c ) {
+		$container->singleton( 'i18nCache', static function ( $c ) {
 			return new JsonCache(
 				$c->settings['i18n.path'], $c->log
 			);
 		} );
 
-		$container->singleton( 'i18nContext', function ( $c ) {
+		$container->singleton( 'i18nContext', static function ( $c ) {
 			return new I18nContext(
 				$c->i18nCache, $c->settings['i18n.default'], $c->log
 			);
 		} );
 
-		$container->singleton( 'mailer',  function ( $c ) {
+		$container->singleton( 'mailer',  static function ( $c ) {
 			return new Mailer(
 				[ 'Host' => $c->settings['smtp.host'] ],
 				$c->log
 			);
 		} );
 
-		$container->singleton( 'parsoid', function ( $c ) {
+		$container->singleton( 'parsoid', static function ( $c ) {
 			return new ParsoidClient(
 				$c->settings['parsoid.url'],
 				$c->settings['parsoid.cache'],
@@ -112,7 +112,7 @@ class App extends AbstractApp {
 			);
 		} );
 
-		$container->singleton( 'logs', function ( $c ) {
+		$container->singleton( 'logs', static function ( $c ) {
 			$settings = [
 				'url' => $c->settings['es.url'],
 			];
@@ -197,24 +197,24 @@ class App extends AbstractApp {
 	 */
 	protected function configureRoutes( \Slim\Slim $slim ) {
 		$slim->group( '/',
-			function () use ( $slim ) {
+			static function () use ( $slim ) {
 				App::template( $slim, 'about' );
 
-				$slim->get( 'projects', function () use ( $slim ) {
+				$slim->get( 'projects', static function () use ( $slim ) {
 					$page = new Pages\Projects( $slim );
 					$page->setI18nContext( $slim->i18nContext );
 					$page->setLogs( $slim->logs );
 					$page();
 				} )->name( 'projects' );
 
-				$slim->get( 'log/:id', function ( $id ) use ( $slim ) {
+				$slim->get( 'log/:id', static function ( $id ) use ( $slim ) {
 					$page = new Pages\Log( $slim );
 					$page->setI18nContext( $slim->i18nContext );
 					$page->setLogs( $slim->logs );
 					$page( $id );
 				} )->name( 'log' );
 
-				$slim->get( '(:project)', function ( $project = 'production' ) use ( $slim ) {
+				$slim->get( '(:project)', static function ( $project = 'production' ) use ( $slim ) {
 					$page = new Pages\Sal( $slim );
 					$page->setI18nContext( $slim->i18nContext );
 					$page->setLogs( $slim->logs );
@@ -223,7 +223,7 @@ class App extends AbstractApp {
 			}
 		); // end group '/'
 
-		$slim->notFound( function () use ( $slim ) {
+		$slim->notFound( static function () use ( $slim ) {
 			$slim->render( '404.html' );
 		} );
 	} // end configureRoutes

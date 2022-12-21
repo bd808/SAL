@@ -26,7 +26,7 @@ namespace Bd808\Sal;
 class LinkifyExtension extends \Twig_Extension {
 
 	/**
-	 * @var array $mappings
+	 * @var array
 	 */
 	protected $mappings;
 
@@ -54,7 +54,7 @@ class LinkifyExtension extends \Twig_Extension {
 		$text = htmlspecialchars( $text );
 		$text = preg_replace(
 			array_keys( $this->mappings ),
-			array_map( function ( $v ) {
+			array_map( static function ( $v ) {
 				return "<a href=\"{$v[0]}\" target=\"_blank\">{$v[1]}</a>";
 			}, array_values( $this->mappings ) ),
 			$text

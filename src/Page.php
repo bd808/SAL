@@ -27,7 +27,7 @@ use Wikimedia\Slimapp\Controller;
  */
 class Page extends Controller {
 	/**
-	 * @var Logs $logs
+	 * @var Logs
 	 */
 	protected $logs;
 
