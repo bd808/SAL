@@ -1,8 +1,0 @@
-language: php
-php:
-  - "7.3"
-sudo: false
-install:
-  - composer install
-script:
-  - composer test
