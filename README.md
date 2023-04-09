@@ -14,17 +14,17 @@ channels.
 
 Credits
 -------
-Favicon from http://glyphicons.com/ (CC-BY 3.0)
+Favicon from https://glyphicons.com/ (CC-BY 3.0)
 
 
 License
 -------
-[GNU GPLv3+](//www.gnu.org/copyleft/gpl.html "GNU GPLv3+")
+[GNU GPLv3+](https://www.gnu.org/licenses/gpl-3.0.html "GNU GPLv3+")
 
 
 ---
 [Wikimedia Toolforge]: https://wikitech.wikimedia.org/wiki/Portal:Toolforge
-[Elasticsearch]: https://www.elastic.co/products/elasticsearch
-[sal]: https://tools.wmflabs.org/sal
+[Elasticsearch]: https://www.elastic.co/elasticsearch/
+[sal]: https://sal.toolforge.org/
 [a Python IRC bot]: https://github.com/bd808/tools-stashbot
 [Libera]: https://libera.chat/
